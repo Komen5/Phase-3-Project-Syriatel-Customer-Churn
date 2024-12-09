@@ -16,14 +16,14 @@ For Syriatel, a leading telecommunications provider in Damascus, Syria, maintain
 
 ## Data Understanding
 The dataset exhibits class imbalance, with 85.51% of customers labeled as "retained" and 14.49% as "churned."
-![Class Imbalance](classimbalance.png)
+![Class Imbalance](images/classimbalance.png)
 The dataframe has both continuous and categorical variables.
 
 
 Scaling varies among the features, and some of them do not exhibit a normal distribution. Consequently, it is necessary to perform both scaling and normalization on the features.
-![Distribution](distribution.png)
+![Distribution](images/distribution.png)
 Most features exhibit a notably weak correlation with each other. Nonetheless, a perfect positive correlation is observed between specific pairs of variables: total evening charge and total evening minutes, total day charge and total day minutes, total night charge and total night minutes, and total international charge and total international minutes. This correlation is anticipated since the charge of a call is inherently influenced by the call's duration in minutes. To address multicollinearity, it will be necessary to eliminate one variable from each correlated pair.
-![Correlation](corr.png)
+![Correlation](images/corr.png)
 
 ## Data Preparation for Machine Learning
 - **Handling Multicollinearity**: Features like total charges are removed to avoid duplication of information.
@@ -42,7 +42,7 @@ Three models are tested:
 The decision tree model with fine-tuned hyperparameters exhibits superior performance, boasting the highest recall score, with accuracy and precision scores surpassing the mean values.
 However, it's worth noting that the achieved recall score falls slightly below the set threshold of at least 85%.
 Below, you can find the feature importance of this top-performing model.
-![Top performing features](evaluation.png)
+![Top performing features](images/evaluation.png)
 
 ## Conclusions
 * The chosen model for predicting customer churn is the decision tree with fine-tuned hyperparameters, boasting the lowest count of false negatives.
@@ -50,11 +50,11 @@ Below, you can find the feature importance of this top-performing model.
 
 * Key features crucial for forecasting customer churn are:
 
-    - `Total Day Minutes:` Reflects the cumulative minutes spent by the customer on daytime calls.
+    - Total Day Minutes: Reflects the cumulative minutes spent by the customer on daytime calls.
 
-    - `Total Evening Minutes:` Sums up the minutes spent on evening calls by the customer.
+    - Total Evening Minutes: Sums up the minutes spent on evening calls by the customer.
 
-    - `Customer Service Calls:` Indicates the number of calls the customer has initiated to reach customer service.
+    - Customer Service Calls: Indicates the number of calls the customer has initiated to reach customer service.
 
 ## Recommendation
 1. **Customer Service Strategy:** Syriatel should ensure a robust customer service strategy to meet customer expectations effectively and assess customer interactions. This includes tracking and addressing both positive and negative feedback from customers.
